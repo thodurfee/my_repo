@@ -1,0 +1,2 @@
+git add "./J Git Hub Settings/01 git ignore files.txt"
+git rm --cached "./F Analysis/01 Data/originals/sample_local_file.csv"

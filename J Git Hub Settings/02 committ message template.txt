@@ -1,7 +1,7 @@
 Project Name: My Project 
 Project State: git setup 
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Update Date: Tue, May 22, 2018 12:55:43 AM 
+Update Date: Tue, May 22, 2018  1:02:46 AM 
 Branch Name: placeholder 
 Branch UID: 0 
  

@@ -4,10 +4,23 @@
 #
 git status
 git add .
-cd "./J Git Hub Settings"
+cd "./D Settings"
 "./01 git ignore files.txt"
-cd ../
+#
 git status
+#proj_abv=$()grep something from the meta file
+#proj_run_count=$()grep something from the meta file
 #
 #
 #
+metafile="meta.csv"
+#
+getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2)
+inccount=`expr $getcount + 1`
+echo $getcount
+echo $inccount
+sed -i 's/Project Run Count , $getcount /Project Run Count , $inccount /g' "$metafile"
+#
+#
+#
+cd ../

@@ -82,6 +82,7 @@ bash_version=$BASH_VERSION
 #	03b: set up output file #
 #################################
 #
+runcount=$(printf "%04g" 0)
 printf '%s\n' "Project Name" "$project_name" | paste -sd ", " > $outputfile
 printf '%s\n' "Project Abreviation" "$project_abreviation" | paste -sd ", " >> $outputfile
 printf '%s\n' "Project Directory" "$project_directory" | paste -sd ", " >> $outputfile
@@ -91,7 +92,7 @@ printf '%s\n' "Project Initialization" ", $project_created" | paste -sd " " >> $
 printf '%s\n' "Project Initialization Year" ", $(date +%Y)" | paste -sd " " >> $outputfile
 printf '%s\n' "Project Initialization Month" ", $(date +%m)" | paste -sd " " >> $outputfile
 printf '%s\n' "Project Initialization Day" ", $(date +%d)" | paste -sd " " >> $outputfile
-printf '%s\n' "Project Run Count" ", 0" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Run Count" "," $runcount | paste -sd " " >> $outputfile
 #
 #
 #

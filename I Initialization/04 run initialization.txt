@@ -83,7 +83,7 @@ bash_version=$BASH_VERSION
 #################################
 #
 runcount=$(printf "%04g" 0)
-branchname=$( printf '%s\n' "$project_abreviation" "$(date +%Y)" "$(date +%m)" | paste -sd "_" )
+branchname=$( printf '%s\n' "$project_abreviation" "$(date +%Y)" "$(date +%m)" "$runcount" | paste -sd "_" )
 printf '%s\n' "Project Name" "$project_name" | paste -sd ", " > $outputfile
 printf '%s\n' "Project Abreviation" "$project_abreviation" | paste -sd ", " >> $outputfile
 printf '%s\n' "Project Directory" "$project_directory" | paste -sd ", " >> $outputfile

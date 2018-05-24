@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+#
+#
+git status
+git add .
+cd "./J Git Hub Settings"
+"./01 git ignore files.txt"
+cd ../
+git status
+#
+#
+#

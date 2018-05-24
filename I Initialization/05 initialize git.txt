@@ -29,6 +29,7 @@
 #
 metafile="meta.csv"
 outputfile="02 committ message template.txt"
+outputfile2="03 committ message.txt"
 settingsfile="03 input git settings thodurfee.csv"
 #
 project_name=$( awk -F ","  "/Project Name/"   "$metafile"  |  cut  -d ,  -f2 )
@@ -74,7 +75,7 @@ git status
 # 04: Generate template committ message #
 #########################################
 #
-cd "./J Git Hub Settings"
+cd "./D Settings"
 printf '%s\n' "Project Name: $project_name " > "$outputfile"
 printf '%s\n' "Project State: $project_state " >> "$outputfile"
 printf '%s\n' "Project Directory: $project_directory " >> "$outputfile"
@@ -91,6 +92,11 @@ printf '%s\n' " " >> "$outputfile"
 printf '%s\n' "Next Time I Will : " >> "$outputfile"
 printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
 printf '%s\n' " " >> "$outputfile"
+#
+#
+#
+cp "$outputfile" "$outputfile2"
+cd ../
 #
 #
 #

@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+#
+#
+"./04 run initialization.txt"
+#
+"./05 initialize git.txt"
+#
+"./06 finish initialization.txt"
+#

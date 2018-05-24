@@ -91,6 +91,7 @@ printf '%s\n' "Project Initialization" ", $project_created" | paste -sd " " >> $
 printf '%s\n' "Project Initialization Year" ", $(date +%Y)" | paste -sd " " >> $outputfile
 printf '%s\n' "Project Initialization Month" ", $(date +%m)" | paste -sd " " >> $outputfile
 printf '%s\n' "Project Initialization Day" ", $(date +%d)" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Run Count" ", 0" | paste -sd " " >> $outputfile
 #
 #
 #

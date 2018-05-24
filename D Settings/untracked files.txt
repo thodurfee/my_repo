@@ -1,2 +1,0 @@
-git add "./D Settings/untracked files.txt"
-git rm --cached "./F Analysis/01 Data/originals/sample_local_file.csv"

@@ -1,0 +1,208 @@
+#!/bin/bash -l
+#PBS -l nodes=1:ppn=24,mem=62gb,walltime=04:59:00
+#PBS -m abe
+#PBS -N "DUN_AND_BRAD_STATA_UPLOAD"
+#PBS -M durfe019@umn.edu
+#PBS -o pbs_log_stata_init_job.log
+#PBS -e pbs_error_init_log.log
+#
+##############################################################################
+## Mesabi Unix Batch Submission Program for RWC and D&B Data  Version 01    ##
+##																			##
+##	Note: all related do files should be loaded into the directory, this 	##
+##			program will automatically generate the storage file and move 	##
+##			the related files into this folder								##
+##																			##
+##	Needed files: {00_syp_master_format.do									##
+##					, 01_print_contents.do									##
+##					, 02_load_filenames.do									##
+##					, 03_load_data.do										##
+##					, 04_transform_data.do									##
+##					, 05_gen_samples.do										##
+##					, 06_merge_years.do										##
+##					}														##
+##																			##
+##	This program will run STATA 13 in batch mode and update in Github		##
+##																			##
+##############################################################################
+#
+#
+#
+echo "Your Program is Beginning"
+cd ~ 
+pwd
+#
+#
+#
+##############################################################################
+## 1.	Defining Terms of Program (see aboe batch code)						##
+##																			##
+## 		1.a.	define the parameters of the batch you want to run w/ above ##
+## 				nodes/mem/wall on line 2                                    ##
+##																			##
+## 		1.b.	give the batch above a name in line 4 above and give the 	##
+##				system an email to send updates in line 5. Line 3 defines 	##
+##				condiitons of update										##
+##																			##
+## 		1.c.	generate (o)perational log files and (e)rror files for the 	##
+##				above batch	in line 6 and 7 above							##
+##############################################################################
+#
+#
+#
+##############################################################################
+## 2.	Define Script Variables												##
+##																			##
+## 		2.a.	repeat the job name used above and fill in version name for	##
+##				tracking purposes (manual action needed for lines 62 and 63)##
+##																			##
+## 		2.b.	this code generates meta variables for tracking purposes    ##
+##############################################################################
+#
+THISTIME=$(date)
+GIVENJOBNAME="DUN_AND_BRAD_STATA_UPLOAD"
+MYVERSION="V1.3.BETA"
+GITUSEREMAIL="durfe019@umn.edu"
+GITUSERNAME="durfe019"
+GITREPO="https://github.umn.edu/durfe019/syp.git"
+#
+#
+#
+##############################################################################
+## 3.	Generate Supplimental Log File										##
+##			(this log is intended to capture meta data from the unix batch 	##
+##			side of the program that would not be captured in the STATA log)##
+##																			##
+## 		generate the meta data of this batch and load into log file			##
+##																			##
+##############################################################################
+#
+echo "You are now running the job:" >> bonuslog.TXT
+echo "$GIVENJOBNAME" >> bonuslog.TXT
+echo " " >> bonuslog.TXT
+#
+echo "You are running this at: " >> bonuslog.TXT
+echo "$THISTIME" >> bonuslog.TXT
+echo " " >> bonuslog.TXT
+#
+echo "You are using upload version: " >> bonuslog.TXT
+echo "$MYVERSION" >> bonuslog.TXT
+echo " " >> bonuslog.TXT
+#
+echo "You are using BATCH ID : " >> bonuslog.TXT
+echo "$PBS_JOBID" >> bonuslog.TXT
+echo " " >> bonuslog.TXT
+#
+echo "You are using Job Name : " >> bonuslog.TXT
+echo "$PBS_JOBNAME" >> bonuslog.TXT
+echo " " >> bonuslog.TXT
+#
+echo "Your current directory is : " >> bonuslog.TXT
+pwd >> bonuslog.TXT
+echo " " >> bonuslog.TXT
+echo " ########## " >> bonuslog.TXT
+#
+#
+#
+##############################################################################
+## 4.	Format Repository in Mesabi to Receive Program Output				##
+##																			##
+##		Note: if you are a new user, uncomment the section below to run		##
+##				if you are a returning user, comment the section below		##
+##				so you do not overwrite the old file structure				##
+##																			##
+##############################################################################
+#
+#
+##############################################################################
+## 		4.a	generate subfolders					 						    ##
+##############################################################################
+mkdir ./dbresearch #this should be uncommented for a new user
+mkdir ./dbresearch/data
+mkdir ./dbresearch/samples
+mkdir ./dbresearch/logs
+mkdir ./dbresearch/logs/debugging
+mkdir ./dbresearch/logs/debugging/codebook
+mkdir ./dbresearch/logs/debugging/debug
+mkdir ./dbresearch/logs/debugging/hexdump
+mkdir ./dbresearch/logs/debugging/verify
+mkdir ./dbresearch/originals
+mkdir ./dbresearch/analysis
+mkdir ./dbresearch/analysis/analysisfiles
+mkdir ./dbresearch/analysis/results
+mkdir ./dbresearch/initializationfiles
+#
+#
+#
+##############################################################################
+## 		4.b	move input files into selected folders 						    ##
+##############################################################################
+#
+mv ./*.do ./dbresearch/
+chmod u+r ./*.*.DMI.*
+mv ./*.*.DMI.* ./dbresearch/originals/
+mv bonuslog.TXT ./dbresearch
+#
+#
+#
+##############################################################################
+## 5.	run the master stata file                                           ##
+##############################################################################
+cd ./dbresearch
+module load stata
+stata -b do 00_syp_master_format
+#
+#
+#
+##############################################################################
+## 6.	clean up mess after program is complete                             ##
+##############################################################################
+cd ../
+mv ./*.log ./dbresearch/logs/
+cd ./dbresearch
+mv ./*.TXT ./logs/
+mv ./*.do ./initializationfiles/
+#
+#
+#
+##############################################################################
+## 7.	give yourself permissions to edit the files you just created        ##
+##############################################################################
+chmod u+rwx ./initializationfiles/*.do
+chmod u+rwx ./data/*.dta
+chmod u+rwx ./samples/*.dta
+chmod u+r ./initializationfiles/logs/*
+chmod u-w ./initializationfiles/logs/*
+chmod u-wx ./originals/*
+echo "Your STATA Program Is Complete"
+#
+#
+#
+ENDTIME=$(date)
+echo "Your program finished at : " >> bonuslog.TXT
+echo $ENDTIME >> bonuslog.TXT
+echo " ########## " >> bonuslog.TXT
+#
+#
+#
+##############################################################################
+## 8.	push the program you just ran to github for version management and 	##
+## 		tracking															##
+##																			##
+## 		Note:the following two lines should be uncommented for a new user   ##
+##				input your github account information to allow updates		##
+##				repository must already have been created on the website end##
+##																			##
+##############################################################################
+git config --global user.email "$GITUSEREMAIL"
+git config --global user.name "GITUSER"
+git init 
+git remote add origin_umn $GITREPO
+git status
+git add initializationfiles/
+git add *.do
+git add ./logs/ -r
+git commit -m "Mesabi Script < $PBS_JOBID > with title < $PBS_JOBNAME >. Ran at < $THISTIME >. Reformat Dun and Bradstreet data from .TXT format to .dta format. Also introduce tansformations of included data for later analysis (e.g. ln(x) x^2). Uses RWC Code Version < $MYVERSION >. "
+git checkout -b "$PBS_JOBID"
+git push -u origin_umn "$PBS_JOBID" 
+cd ../

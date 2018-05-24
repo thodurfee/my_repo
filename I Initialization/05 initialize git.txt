@@ -1,0 +1,115 @@
+#!/bin/bash
+#
+#
+#
+############################
+# 01: Initialization notes #
+############################
+############################################################
+#
+# Before you run this, you should have already updated the text files below
+#	1 input project details.txt
+#	2 input project description.txt
+#	3 input git settings.txt
+#	meta.csv
+#
+#
+#
+#
+#
+#
+###############################
+# 02: define project settings #
+###############################
+############################################################
+#
+###############################
+# 	02a: load project details #
+###############################
+#
+metafile="meta.csv"
+outputfile="02 committ message template.txt"
+settingsfile="03 input git settings thodurfee.csv"
+#
+project_name=$( awk -F ","  "/Project Name/"   "$metafile"  |  cut  -d ,  -f2 )
+gituser=$( awk -F ","  "/git user/"   "$settingsfile"  |  cut  -d ,  -f2 )
+gitrepo=$( awk -F ","  "/git repo/"   "$settingsfile"  |  cut  -d ,  -f2 )
+gitorigin=$( awk -F ","  "/git hyperlink/"   "$settingsfile"  |  cut  -d ,  -f2 )
+echo $gitorigin
+#
+#
+#
+########################################
+# 	02b: define project home directory #
+########################################
+#
+project_directory=$( awk -F ","  "/Project Directory/"   "$metafile"  |  cut  -d ,  -f2 )
+#
+#
+#
+###########################################
+# 	02c: define project set up conditions #
+###########################################
+project_state="git setup"
+# <to do, find a way to make this all one cell so I can refer to it in a single call later>
+# insert something using sed
+#
+#
+#
+##############################
+# 03: generate git framework #
+##############################
+############################################################
+#
+cd "$project_directory"
+git init
+git status
+#
+#
+#
+#
+#
+#
+#########################################
+# 04: Generate template committ message #
+#########################################
+#
+cd "./J Git Hub Settings"
+printf '%s\n' "Project Name: $project_name " > "$outputfile"
+printf '%s\n' "Project State: $project_state " >> "$outputfile"
+printf '%s\n' "Project Directory: $project_directory " >> "$outputfile"
+printf '%s\n' "Update Date: $(date) " >> "$outputfile"
+printf '%s\n' "Branch Name: placeholder " >> "$outputfile"
+printf '%s\n' "Branch UID: 0 " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' "Last Time I Worked On This Project : " >> "$outputfile"
+printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' "This Time I : " >> "$outputfile"
+printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' "Next Time I Will : " >> "$outputfile"
+printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+######################
+# 05: Connect to Git #
+######################
+#
+git add .
+git commit -m "first commit at $(date)"
+git remote add origin $gitorigin
+git push -u origin master
+############
+# 04: Exit #
+############
+############################################################
+#

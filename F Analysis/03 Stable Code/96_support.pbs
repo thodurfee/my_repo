@@ -1,0 +1,59 @@
+#!/bin/bash -l
+#PBS -l nodes=2:ppn=32,mem=252gb,walltime=09:59:59
+#PBS -m abe
+#PBS -N "COMPRESS"
+#PBS -M durfe019@umn.edu
+#PBS -o compress.log
+#PBS -e compress.log
+#
+#
+#
+# assume this program runs out of home dir
+cd ./dbresearch
+#
+THISTIME=$(date)
+GIVENJOBNAME="COMPRESS"
+MYVERSION="V1.4.BETA"
+#
+echo "You are now running the job:" >> compress.TXT
+echo "$GIVENJOBNAME" >> compress.TXT
+echo " " >> compress.TXT
+#
+echo "You are running this at: " >> compress.TXT
+echo "$THISTIME" >> compress.TXT
+echo " " >> compress.TXT
+#
+echo "You are using upload version: " >> compress.TXT
+echo "$MYVERSION" >> compress.TXT
+echo " " >> compress.TXT
+#
+echo "You are using BATCH ID : " >> compress.TXT
+echo "$PBS_JOBID" >> compress.TXT
+echo " " >> compress.TXT
+#
+echo "You are using Job Name : " >> compress.TXT
+echo "$PBS_JOBNAME" >> compress.TXT
+echo " " >> compress.TXT
+#
+echo "Your current directory is : " >> compress.TXT
+pwd >> compress.TXT
+echo " " >> compress.TXT
+echo " ########## " >> compress.TXT
+#
+#
+module load stata
+#stata -b do 06_merge_years_external_post
+#
+stata -b do 11_rename_vars , nostop
+stata -b do 12_label_treat , nostop
+stata -b do 13_add_more_vars , nostop
+stata -b do 30_save_treated_panel , nostop
+stata -b do 07_panel_sample_post , nostop
+#
+#
+#
+#
+ENDTIME=$(date)
+echo "Your program finished at : " >> compress.TXT
+echo $ENDTIME >> compress.TXT
+echo " ########## " >> compress.TXT

@@ -1,0 +1,102 @@
+#!/bin/bash
+#
+#
+#
+############################
+# 01: Initialization notes #
+############################
+############################################################
+#
+# Before you run this, you should have already updated the text files below
+#	1 input project details.txt
+#	2 input project description.txt
+#	3 input git settings.txt
+#
+#
+#
+#
+#
+#
+###############################
+# 02: define project settings #
+###############################
+############################################################
+#
+################################
+# 	02a: load project name #
+################################
+#
+detailfile="01 input project details.csv"
+outputfile="meta.csv"
+project_name=$( awk -F ","  "/project_name/"   "$detailfile"  |  cut  -d ,  -f2 )
+project_authors=$( awk -F ","  "/project_authors/"   "$detailfile"  |  cut  -d ,  -f2 )
+project_abreviation=$( awk -F ","  "/project_abreviation/"   "$detailfile"  |  cut  -d ,  -f2 )
+#
+#
+#
+############################################
+# 	02b: define project home directory #
+############################################
+#
+cd ../
+project_directory=$(pwd)
+cd "./I Initialization"
+#
+#
+#
+###############################################
+# 	02c: define project set up conditions #
+###############################################
+project_state="initialization"
+# <to do, find a way to make this all on e cell so I can refer to it in a single call later>
+project_created=$(date)
+bash_version=$BASH_VERSION
+#
+#
+#
+###########################
+# 03: generate set up log #
+###########################
+############################################################
+#
+##################################
+# 	03a: program description #
+##################################
+#
+# printf is for fileprint
+#
+# '%s\n' is for <insert reason>
+#
+# | paste is for piping the inputs form the left into the operator paste
+#	this allows me to force commas and spaces between arguments
+#
+# -sd is for <insert reason>
+#
+# ", "  is the seperator I am forcing between arguments
+#
+# > and >> are for piping the input of the left side to a file
+#
+#
+#
+#################################
+#	03b: set up output file #
+#################################
+#
+printf '%s\n' "Project Name" "$project_name" | paste -sd ", " > $outputfile
+printf '%s\n' "Project Abreviation" "$project_abreviation" | paste -sd ", " >> $outputfile
+printf '%s\n' "Project Directory" "$project_directory" | paste -sd ", " >> $outputfile
+printf '%s\n' "Project Authors" "$project_authors" | paste -sd ", " >> $outputfile
+printf '%s\n' "Project State" "$project_state" | paste -sd ", " >> $outputfile
+printf '%s\n' "Project Initialization" ", $project_created" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Initialization Year" ", $(date +%Y)" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Initialization Month" ", $(date +%m)" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Initialization Day" ", $(date +%d)" | paste -sd " " >> $outputfile
+#
+#
+#
+#
+############
+# 04: Exit #
+############
+############################################################
+#

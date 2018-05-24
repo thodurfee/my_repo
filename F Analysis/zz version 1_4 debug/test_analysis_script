@@ -1,0 +1,22 @@
+#!/bin/bash -l
+pwd
+ls
+cd "../pseudomesabi/2018 02 21/"
+pwd
+cd ./dbresearch
+#
+#
+statadir="C:/Program Files (x86)/Stata14/Stata-64.exe"
+#
+mydir="H:/second year paper research/second_year_paper/12 sandbox code/version 1.4/"
+#
+#
+#"$statadir" do "$mydir""11_rename_vars.do"
+#"$statadir" do "$mydir""12_label_treat.do"
+#"$statadir" do "$mydir""13_add_more_vars.do"
+"$statadir" do "$mydir""61_basic_regression.do" , nostop
+cd "../analysis/analysisfiles"
+pwd
+#"$statadir" do "$mydir""yy_basic_graphs.do"
+pwd
+cd ../../logs/

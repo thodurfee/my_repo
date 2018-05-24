@@ -1,0 +1,66 @@
+Theory of Mechanisms
+
+Phenomenology
+
+	What is the phenomenon of interest?
+		Lorem ipsum 
+
+		
+	How localizable is the phenomenon
+		Lorem ipsum
+	
+	
+	What laws do I believe govern the definition of this phenomenon? 
+		Lorem ipsum	
+	
+	
+	What do I have to assert to construct these laws in the first place (Godel Incompleteness)?
+		Lorem ipsum
+
+		
+	What are the entitites involved with the phenemonon?
+		Lorem ipsum
+
+		
+	What are the properties ascribed to these entities?
+		Lorem ipsum
+
+		
+	What activities to these entities undergo? 
+		Lorem ipsum
+
+		
+	Are these activities a result of the above properties of this entity?
+		Lorem ipsum
+
+		
+Epistemology
+		
+	How is the epistemology of how we come to know this phenomenon different from the actuality of the phenomenon?
+			Lorem ipsum
+
+
+		
+Meta Physics of Comparison
+
+	Am I asserting a set of infinite worlds with similar conditions?
+		Lorem ipsum
+
+
+	When I run my regression, what am I assuming?
+		Am I changing the entities or keeping them the same?
+			Lorem ipsum
+			
+			
+		Am I changing the properties or keeping them the same?
+			Lorem ipsum
+			
+			
+		Am I changing the actvities or keeping them the same?
+			Lorem ipsum
+			
+			
+		Am I assuming a change in the localization of the phenomenon?
+			Lorem ipsum
+ 
+	

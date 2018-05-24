@@ -1,0 +1,59 @@
+#!/bin/bash -l
+#PBS -l nodes=2:ppn=32,mem=998gb,walltime=04:59:59
+#PBS -m abe
+#PBS -N "POST_MATCH_PANEL"
+#PBS -M durfe019@umn.edu
+#PBS -o post_match_job.log
+#PBS -e post_match_err.log
+#
+#
+#
+# assume this program runs out of home dir
+cd ./dbresearch
+#
+THISTIME=$(date)
+GIVENJOBNAME="POST_MATCH_PANEL"
+MYVERSION="V1.4.BETA"
+#
+echo "You are now running the job:" >> panel_post.TXT
+echo "$GIVENJOBNAME" >> panel_post.TXT
+echo " " >> panel_post.TXT
+#
+echo "You are running this at: " >> panel_post.TXT
+echo "$THISTIME" >> panel_post.TXT
+echo " " >> panel_post.TXT
+#
+echo "You are using upload version: " >> panel_post.TXT
+echo "$MYVERSION" >> panel_post.TXT
+echo " " >> panel_post.TXT
+#
+echo "You are using BATCH ID : " >> panel_post.TXT
+echo "$PBS_JOBID" >> panel_post.TXT
+echo " " >> panel_post.TXT
+#
+echo "You are using Job Name : " >> panel_post.TXT
+echo "$PBS_JOBNAME" >> panel_post.TXT
+echo " " >> panel_post.TXT
+#
+echo "Your current directory is : " >> panel_post.TXT
+pwd >> panel_post.TXT
+echo " " >> panel_post.TXT
+echo " ########## " >> panel_post.TXT
+#
+#
+module load stata
+stata -b do 06_merge_years_external_post
+#
+stata -b do 11_rename_vars
+stata -b do 07_panel_sample_post
+stata -b do 12_label_treat
+stata -b do 13_add_more_vars
+stata -b do 30_save_treated_panel
+#
+#
+#
+#
+ENDTIME=$(date)
+echo "Your program finished at : " >> panel_post.TXT
+echo $ENDTIME >> panel_post.TXT
+echo " ########## " >> panel_post.TXT

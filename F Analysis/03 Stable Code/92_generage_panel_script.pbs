@@ -1,0 +1,183 @@
+#!/bin/bash -l
+#PBS -l nodes=2:ppn=32,mem=998gb,walltime=04:59:00
+#PBS -m abe
+#PBS -N "DUN_AND_BRAD_PANEL_MERGE"
+#PBS -M durfe019@umn.edu
+#PBS -o pbs_log_stata_job_merge.log
+#PBS -e pbs_error_log_merge.log
+#
+##############################################################################
+## ram1t  Unix Batch Submission Program for RWC and D&B Data  Version 1.3   ##
+##																			##
+##	Note: all related do files should be loaded into the directory, this 	##
+##			program will automatically generate the storage file and move 	##
+##			the related files into this folder								##
+##																			##
+##	Needed files: {******************.do									##
+##																			##
+##					, 06_merge_years_external.do							##
+##					}														##
+##																			##
+##	This program will run STATA 13 in batch mode and update in Github		##
+##																			##
+##############################################################################
+#
+#
+#
+echo "Your Program is Beginning"
+cd ./dbresearch
+pwd
+#
+#
+#
+##############################################################################
+## 1.	Defining Terms of Program (see above batch mode)					##
+##																			##
+## 		1.a.	define the parameters of the batch you want to run w/ above ##
+## 				nodes/mem/wall on line 2                                    ##
+##																			##
+## 		1.b.	give the batch above a name in line 4 above and give the 	##
+##				system an email to send updates in line 5. Line 3 defines 	##
+##				condiitons of update										##
+##																			##
+## 		1.c.	generate (o)perational log files and (e)rror files for the 	##
+##				above batch	in line 6 and 7 above							##
+##############################################################################
+#
+#
+#
+##############################################################################
+## 2.	Define Script Variables												##
+##																			##
+## 		2.a.	repeat the job name used above and fill in version name for	##
+##				tracking purposes (manual action needed for lines 62 and 63)##
+##																			##
+## 		2.b.	this code generates meta variables for tracking purposes    ##
+##############################################################################
+#
+THISTIME=$(date)
+GIVENJOBNAME="DUN_AND_BRAD_STATA_MERGE"
+MYVERSION="V1.3.BETA"
+#
+#
+#
+##############################################################################
+## 3.	Generate Supplimental Log File										##
+##			(this log is intended to capture meta data from the unix batch 	##
+##			side of the program that would not be captured in the STATA log)##
+##																			##
+## 		generate the meta data of this batch and load into log file			##
+##																			##
+##############################################################################
+#
+echo "You are now running the job:" >> mergelog.TXT
+echo "$GIVENJOBNAME" >> mergelog.TXT
+echo " " >> mergelog.TXT
+#
+echo "You are running this at: " >> mergelog.TXT
+echo "$THISTIME" >> mergelog.TXT
+echo " " >> mergelog.TXT
+#
+echo "You are using upload version: " >> mergelog.TXT
+echo "$MYVERSION" >> mergelog.TXT
+echo " " >> mergelog.TXT
+#
+echo "You are using BATCH ID : " >> mergelog.TXT
+echo "$PBS_JOBID" >> mergelog.TXT
+echo " " >> mergelog.TXT
+#
+echo "You are using Job Name : " >> mergelog.TXT
+echo "$PBS_JOBNAME" >> mergelog.TXT
+echo " " >> mergelog.TXT
+#
+echo "Your current directory is : " >> mergelog.TXT
+pwd >> mergelog.TXT
+echo " " >> mergelog.TXT
+echo " ########## " >> mergelog.TXT
+#
+#
+#
+##############################################################################
+## 4.	Format Repository in Mesabi to Receive Program Output				##
+##																			##
+##		Note: if you are a new user, uncomment the section below to run		##
+##				if you are a returning user, comment the section below		##
+##				so you do not overwrite the old file structure				##
+##																			##
+##############################################################################
+#
+#
+##############################################################################
+## 		4.a	generate subfolders					 						    ##
+##############################################################################
+mkdir ./updatefiles 
+#
+#
+##############################################################################
+## 		4.b	move input files into selected folders 						    ##
+##############################################################################
+#
+mv ../06_merge_years_external.do ./updatefiles
+mv ../07_panel_sample.do ./updatefiles
+mv ../mergelog.TXT ./updatefiles
+#
+#
+#
+##############################################################################
+## 5.	run the master stata file                                           ##
+##############################################################################
+module load stata
+stata -b do ./updatefiles/06_merge_years_external
+stata -b do ./updatefiles/07_panel_sample
+#
+#
+#
+##############################################################################
+## 6.	clean up mess after program is complete                             ##
+##############################################################################
+mv ../*.log ./logs/
+mv ../*.TXT ./logs/
+#
+#
+#
+##############################################################################
+## 7.	give yourself permissions to edit the files you just created        ##
+##############################################################################
+chmod u+rwx ./initializationfiles/*.do
+chmod u+rwx ./data/*.dta
+chmod u+rwx ./samples/*.dta
+chmod u+r ./initializationfiles/logs/*
+chmod u-w ./initializationfiles/logs/*
+chmod u-wx ./originals/*
+echo "Your STATA Program Is Complete"
+#
+#
+#
+ENDTIME=$(date)
+echo "Your program ended at : " >> mergelog.TXT
+echo $ENDTIME >> mergelog.TXT
+echo " ########## " >> mergelog.TXT
+#
+#
+#
+##############################################################################
+## 8.	push the program you just ran to github for version management and 	##
+## 		tracking															##
+##																			##
+## 		Note:the following two lines should be uncommented for a new user   ##
+##				input your github account information to allow updates		##
+##				repository must already have been created on the website end##
+##																			##
+##############################################################################
+git config --global user.email "durfe019@umn.edu"
+git config --global user.name "durfe019"
+git init 
+git remote add origin_umn https://github.umn.edu/durfe019/syp.git
+git status
+git add initializationfiles/
+git add *.do
+git add ./logs/ -r
+git commit -m "Mesabi Script < $PBS_JOBID > with title < $PBS_JOBNAME >. Ran at < $THISTIME >. Reformat Dun and Bradstreet data from .TXT format to .dta format. Also introduce tansformations of included data for later analysis (e.g. ln(x) x^2). Uses RWC Code Version < $MYVERSION >. "
+git checkout -b "$PBS_JOBID"
+git push -u origin_umn "$PBS_JOBID" 
+cd ../

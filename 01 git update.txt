@@ -29,6 +29,8 @@ newbranch=$( printf '%s\n' "$proj_abv" "$startyear" "$startmonth" "$inccount" | 
 echo $getcount
 echo $inccount
 echo $newbranch
+echo $thisbranch
+echo $lastbranch
 #
 sed -i 's/Project Run Count , $getcount/Project Run Count , $inccount/g' "$metafile"
 sed -i 's/Project Current Branch , $thisbranch/Project Current Branch , $newbranch/g' "$metafile"

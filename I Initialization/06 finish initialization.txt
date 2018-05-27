@@ -1,5 +1,0 @@
-#!/bin/bash
-#
-#
-#
-mv meta.csv "../D Settings"

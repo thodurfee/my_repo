@@ -1,3 +1,0 @@
-This is a new update: usng the new message log system
-
-This is a multi line commit message that will store in the new log file

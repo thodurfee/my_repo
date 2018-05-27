@@ -1,6 +1,0 @@
-Update from the end of the day
-
-Now with sed replacement
-Now with remote commit message logging
-
-One commit is from inside the project folder, the other is from just outside

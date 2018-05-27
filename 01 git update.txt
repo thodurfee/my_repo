@@ -18,23 +18,30 @@ metafile="meta.csv"
 #
 # the awk $1=$1 piece is to remove spaces between the pieces of the paste
 getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2)
+getcountheader=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f1)
 inccount=$(printf "%04g" $(expr $getcount + 1))
 lastbranch=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f2)
+lastbranchheader=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f1)
 thisbranch=$( awk -F "," "/Project Current Branch/"  "$metafile"  |  cut  -d , -f2)
+thisbranchheader=$( awk -F "," "/Project Current Branch/"  "$metafile"  |  cut  -d , -f1)
 otherbranch=$( awk -F "," "/Project Last Stable Branch/"  "$metafile"  |  cut  -d , -f2)
+otherbranchheader=$( awk -F "," "/Project Last Stable Branch/"  "$metafile"  |  cut  -d , -f1)
 startyear=$( awk -F "," "/Project Initialization Year/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
 startmonth=$( awk -F "," "/Project Initialization Month/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
 proj_abv=$( awk -F "," "/Project Abreviation/"  "$metafile"  |  cut  -d , -f2)
 newbranch=$( printf '%s\n' "$proj_abv" "$startyear" "$startmonth" "$inccount" | paste -sd "_")
+#
+#
+#
 echo $getcount
 echo $inccount
 echo $newbranch
 echo $thisbranch
 echo $lastbranch
 #
-sed -i 's/Project Run Count , $getcount/Project Run Count , $inccount/g' "$metafile"
-sed -i 's/Project Current Branch , $thisbranch/Project Current Branch , $newbranch/g' "$metafile"
-sed -i 's/Project Previous Branch , $lastbranch/Project Previous Branch , $thisbranch/g' "$metafile"
+sed -i 's/$getcountheader,$getcount/$getcountheader,$inccount/g' "$metafile"
+sed -i 's/$thisbranchheader,$thisbranch/$thisbranchheader,$newbranch/g' "$metafile"
+sed -i 's/$lastbranchheader,$lastbranch/$lastbranchheader, $thisbranch/g' "$metafile"
 #
 #
 #

@@ -18,55 +18,55 @@ metafile="meta.csv"
 #
 # the awk $1=$1 piece is to remove spaces between the pieces of the paste
 getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2)
-echo "Get Count: $getcount"
+echo "Get Count:$getcount"
 #
 #
-getcountheader=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f1)
-echo "Get Count Header: $getcountheader"
+getcountheader=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f1 | awk '{$1=$1};1')
+echo "Get Count Header:$getcountheader"
 #
 #
 inccount=$(printf "%04g" $(expr $getcount + 1))
-echo "Incremented Count: $inccount"
+echo "Incremented Count:$inccount"
 #
 #
-lastbranch=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f2)
-echo "Last Branch: $lastbranch"
+lastbranch=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
+echo "Last Branch:$lastbranch"
 #
 #
-lastbranchheader=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f1)
-echo "Last Branch Header: $lastbranchheader"
+lastbranchheader=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f1 | awk '{$1=$1};1')
+echo "Last Branch Header:$lastbranchheader"
 #
 #
-thisbranch=$( awk -F "," "/Project Current Branch/"  "$metafile"  |  cut  -d , -f2)
-echo "This Branch: $thisbranch"
+thisbranch=$( awk -F "," "/Project Current Branch/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
+echo "This Branch:$thisbranch"
 #
 #
-thisbranchheader=$( awk -F "," "/Project Current Branch/"  "$metafile"  |  cut  -d , -f1)
-echo "This Branch Header: $thisbranchheader"
+thisbranchheader=$( awk -F "," "/Project Current Branch/"  "$metafile"  |  cut  -d , -f1 | awk '{$1=$1};1')
+echo "This Branch Header:$thisbranchheader"
 #
 #
-otherbranch=$( awk -F "," "/Project Last Stable Branch/"  "$metafile"  |  cut  -d , -f2)
-echo "Last Stable Branch: $otherbranch"
+otherbranch=$( awk -F "," "/Project Last Stable Branch/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
+echo "Last Stable Branch:$otherbranch"
 #
 #
-otherbranchheader=$( awk -F "," "/Project Last Stable Branch/"  "$metafile"  |  cut  -d , -f1)
-echo "Last Stable Branch Header: $otherbranchheader"
+otherbranchheader=$( awk -F "," "/Project Last Stable Branch/"  "$metafile"  |  cut  -d , -f1 | awk '{$1=$1};1')
+echo "Last Stable Branch Header:$otherbranchheader"
 #
 #
 startyear=$( awk -F "," "/Project Initialization Year/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
-echo "Start Year: $startyear"
+echo "Start Year:$startyear"
 #
 #
 startmonth=$( awk -F "," "/Project Initialization Month/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
-echo "Start Month: $startmonth"
+echo "Start Month:$startmonth"
 #
 #
-proj_abv=$( awk -F "," "/Project Abreviation/"  "$metafile"  |  cut  -d , -f2)
-echo "Project Abreviation: $proj_abv"
+proj_abv=$( awk -F "," "/Project Abreviation/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
+echo "Project Abreviation:$proj_abv"
 #
 #
-newbranch=$( printf '%s\n' "$proj_abv" "$startyear" "$startmonth" "$inccount" | paste -sd "_")
-echo "New Branch Name: $newbranch"
+newbranch=$( printf '%s\n' "$proj_abv" "$startyear" "$startmonth" "$inccount" | paste -sd "_" | awk '{$1=$1};1')
+echo "New Branch Name:$newbranch"
 #
 #
 #

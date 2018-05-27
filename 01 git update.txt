@@ -13,6 +13,10 @@ git status
 #
 metafile="meta.csv"
 #
+#
+#
+#
+# the awk $1=$1 piece is to remove spaces between the pieces of the paste
 getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2)
 inccount=$(printf "%04g" $(expr $getcount + 1))
 lastbranch=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f2)
@@ -26,9 +30,9 @@ echo $getcount
 echo $inccount
 echo $newbranch
 #
-sed -i 's/Project Run Count , $getcount /Project Run Count , $inccount /g' "$metafile"
-sed -i 's/Project Current Branch , $thisbranch /Project Current Branch , $newbranch /g' "$metafile"
-sed -i 's/Project Previous Branch , $lastbranch /Project Previous Branch , $thisbranch /g' "$metafile"
+sed -i 's/Project Run Count , $getcount/Project Run Count , $inccount/g' "$metafile"
+sed -i 's/Project Current Branch , $thisbranch/Project Current Branch , $newbranch/g' "$metafile"
+sed -i 's/Project Previous Branch , $lastbranch/Project Previous Branch , $thisbranch/g' "$metafile"
 #
 #
 #

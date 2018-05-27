@@ -16,7 +16,14 @@ git status
 metafile="meta.csv"
 #
 getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2)
-inccount=`expr $getcount + 1`
+inccount=$(printf "04g" $(`expr $getcount + 1`))
+lastbranch=$( awk -F "," "/Project Previous Branch/"  "$metafile"  |  cut  -d , -f2)
+thisbranch=$( awk -F "," "/Project Current Branch/"  "$metafile"  |  cut  -d , -f2)
+otherbranch=$( awk -F "," "/Project Last Stable Branch/"  "$metafile"  |  cut  -d , -f2)
+startyear=$( awk -F "," "/Project Initialization Year/"  "$metafile"  |  cut  -d , -f2)
+startmonth=$( awk -F "," "/Project Initialization Month/"  "$metafile"  |  cut  -d , -f2)
+proj_abv=$( awk -F "," "/Project Abreviation/"  "$metafile"  |  cut  -d , -f2)
+newbranch=$( printf '%s\n' "$proj_abv" "$startyear" "$startmonth" "$inccount" | paste -sd "_")
 echo $getcount
 echo $inccount
 sed -i 's/Project Run Count , $getcount /Project Run Count , $inccount /g' "$metafile"
@@ -25,4 +32,8 @@ sed -i 's/Project Run Count , $getcount /Project Run Count , $inccount /g' "$met
 #
 cd ../
 #
-git commit -F "./D Settings/03 committ message.txt"
+git add .
+#git checkout -b origin newbranch
+git commit -F "./D Settings/03 commit message.txt"
+git status
+#git push origin newbranch

@@ -107,28 +107,6 @@ cd "./00 commit logs"
 # project start date
 # update date
 # branch name
-
-# bwelow is a copy of the studd above, I need to make it specific to the kind of log file I want to have
-
-printf '%s\n' "Project Name: $project_name " > "$outputfile"
-printf '%s\n' "Project State: $project_state " >> "$outputfile"
-printf '%s\n' "Project Directory: $project_directory " >> "$outputfile"
-printf '%s\n' "Update Date: $(date) " >> "$outputfile"
-printf '%s\n' "Branch Name: placeholder " >> "$outputfile"
-printf '%s\n' "Branch UID: 0 " >> "$outputfile"
-printf '%s\n' " " >> "$outputfile"
-printf '%s\n' "Last Time I Worked On This Project : " >> "$outputfile"
-printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
-printf '%s\n' " " >> "$outputfile"
-printf '%s\n' "This Time I : " >> "$outputfile"
-printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
-printf '%s\n' " " >> "$outputfile"
-printf '%s\n' "Next Time I Will : " >> "$outputfile"
-printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
-printf '%s\n' " " >> "$outputfile"
-#
-#
-#
 #
 #
 #

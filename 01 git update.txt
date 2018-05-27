@@ -24,3 +24,5 @@ sed -i 's/Project Run Count , $getcount /Project Run Count , $inccount /g' "$met
 #
 #
 cd ../
+#
+git commit -F "./D Settings/03 committ message.txt"

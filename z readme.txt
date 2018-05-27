@@ -1,30 +1,70 @@
-no "\n" in any nammes, it will break the ability to switch to a new line in a .txt editor later
+Read Me for: 	Test Workspace
+################################################################################
 
-authors should be entered in the same cell, with a ";" seperator. If you use "," the csv reader will skip over second and third authors later
-
-
-define your git reporistory and project name beforehand, it makes things easier
-
-instructions:
-run 99 wrapper from the initialization file first 
+Version: 	04
+Version Date: 	2018 05 27
 
 
 
-Next, I should make a folder that is set up to acept git branch committ histories
+Purpose:	This is trying to make a templatefora workspace that 
+		automatically updates my project so I can run it from a 
+		shell editor. This also will store some scalars so I can
+		share files between STATA and R.
+		
+		This should be in its own folder heirarcy, then I fill out
+		some minimal information and let the program make the rest
 
 
-then, I need to check how to recursivelty update folders in git. do I need tpo go into every file and make an init?
-that seems unlikelty
+
+Rules:		1) When I come up with a name for the project, I cannot use "\n"
+			in the name, or else it will break the Unix script later
+
+		2) If there are multiple authors, include all names in the same 
+			cell and seperate with ";" . Do not use "," or else
+			you will break the Unix shell editor later
+
+
+Instructions:	1) Fill in project details in "~/I Initialization"
+			a) "./01 input project details.csv"
+			b) "./02 input project description.txt"
+			c) "./03 input git settings <insert git name>.csv"
+				git name will change if you are using the
+				umn or the personal git account
+
+		2) Run "./99 initialization wrapper.txt" from inside "./I"
+
+
+		3) Fill in project details in "~/D Settings"
+			a) "./01 git ignore files.txt" for files not to be
+				in the repository (e.g. big files)
+			b) "./03 committ message.txt" for my committs
+				
+
+
+
+
 
 
 ifpossible, I should see if I can make a unix log file for this set up code.
 
 
 
-folders I and E may be redundant. What is the difference?
+1.. am I making the 02 git committ template twice
+
+2.. who do I spell committcomit
+
+3.. make the incrementor for the working branch, acctually, pull from the meta file,
+dont just do it in the shell
+
+4. review unrelated histories so I dont get confused,
+
+then think about how I can merge branches from thee bottom up
+maybe have a list of branches that this project has previously taken then write a for loop that starts t the bottom and mergess up
+
+look for help online if there are examples of this somewhere else
 
 
-my git nickname should be in the 03 input git settings file
+
 
 
 for some reason, in 01 git update.txt , when I type the sed command on line 22 into the terminal, I get the activity I want, the replacement of the run count from the meta.csv file

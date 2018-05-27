@@ -28,8 +28,8 @@
 ###############################
 #
 metafile="meta.csv"
-outputfile="02 committ message template.txt"
-outputfile2="03 committ message.txt"
+outputfile="02 commit message template.txt"
+outputfile2="03 commit message.txt"
 settingsfile="03 input git settings thodurfee.csv"
 #
 project_name=$( awk -F ","  "/Project Name/"   "$metafile"  |  cut  -d ,  -f2 )

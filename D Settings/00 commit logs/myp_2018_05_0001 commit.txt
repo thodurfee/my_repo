@@ -1,19 +1,19 @@
 Project Name: My Project 
 Project State: initialization 
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Last Update: Sun, May 27, 2018  9:47:44 PM 
+Last Update: Sun, May 27, 2018 10:10:27 PM 
 Branch Name: myp_2018_05_0001 
 Branch UID: 0001 
  
 Last Time I Worked On This Project : 
-I think I have a stable version with the basics 
+reminder-no punctuations that could be escape terms 
  
 This Time I : 
-am going to check what the commit log is going to look like 
+reminder-no punctuations that could be escape terms 
  
 Next Time I Will : 
-integrate state and r 
+reminder-no punctuations that could be escape terms 
  
  
  
-Time of Commit: Sun, May 27, 2018  9:50:21 PM
+Time of Commit: Sun, May 27, 2018 10:10:49 PM

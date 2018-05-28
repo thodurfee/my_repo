@@ -1,19 +1,19 @@
 Project Name: My Project 
-Project State: git setup 
+Project State: initialization 
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Update Date: Sun, May 27, 2018  9:47:25 PM 
-Branch Name: placeholder 
-Branch UID: 0 
+Last Update: Sun, May 27, 2018  9:47:44 PM 
+Branch Name: myp_2018_05_0001 
+Branch UID: 0001 
  
 Last Time I Worked On This Project : 
-reminder-no punctuations that could be escape terms 
+I think I have a stable version with the basics 
  
 This Time I : 
-reminder-no punctuations that could be escape terms 
+am going to check what the commit log is going to look like 
  
 Next Time I Will : 
-reminder-no punctuations that could be escape terms 
+integrate state and r 
  
  
  
-Time of Commit: Sun, May 27, 2018  9:47:39 PM
+Time of Commit: Sun, May 27, 2018  9:50:21 PM

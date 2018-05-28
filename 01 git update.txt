@@ -17,7 +17,7 @@ metafile="meta.csv"
 #
 #
 # the awk $1=$1 piece is to remove spaces between the pieces of the paste
-getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2)
+getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
 echo "Get Count:$getcount"
 #
 #

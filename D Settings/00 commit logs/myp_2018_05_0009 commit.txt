@@ -1,9 +1,9 @@
 Project Name: My Project 
-Project State: git setup 
+Project State: initialization 
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Update Date: Sun, May 27, 2018 10:10:11 PM 
-Branch Name: placeholder 
-Branch UID: 1 
+Last Update: Sun, May 27, 2018 10:03:35 PM 
+Branch Name: myp_2018_05_0009 
+Branch UID: 0009 
  
 Last Time I Worked On This Project : 
 reminder-no punctuations that could be escape terms 
@@ -14,3 +14,6 @@ reminder-no punctuations that could be escape terms
 Next Time I Will : 
 reminder-no punctuations that could be escape terms 
  
+ 
+ 
+Time of Commit: Sun, May 27, 2018 10:04:06 PM

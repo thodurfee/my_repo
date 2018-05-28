@@ -92,9 +92,9 @@ printf '%s\n' "Project Directory" "$project_directory" | paste -sd ", " >> $outp
 printf '%s\n' "Project Authors" "$project_authors" | paste -sd ", " >> $outputfile
 printf '%s\n' "Project State" "$project_state" | paste -sd ", " >> $outputfile
 printf '%s\n' "Project Initialization" ", $project_created" | paste -sd " " >> $outputfile
-printf '%s\n' "Project Initialization Year" ", $(date +%Y)" | paste -sd " " >> $outputfile
-printf '%s\n' "Project Initialization Month" ", $(date +%m)" | paste -sd " " >> $outputfile
-printf '%s\n' "Project Initialization Day" ", $(date +%d)" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Initialization Year" ", $(printf "%04g" $(date +%Y))" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Initialization Month" ", $(printf "%02g" $(date +%m))" | paste -sd " " >> $outputfile
+printf '%s\n' "Project Initialization Day" ", $(printf "%02g" $(date +%d))" | paste -sd " " >> $outputfile
 printf '%s\n' "Project Run Count" "," $runcount | paste -sd " " >> $outputfile
 printf '%s\n' "Project Current Branch" "," "$branchname" | paste -sd " " >> $outputfile
 printf '%s\n' "Project Previous Branch" "," "$branchname" | paste -sd " " >> $outputfile

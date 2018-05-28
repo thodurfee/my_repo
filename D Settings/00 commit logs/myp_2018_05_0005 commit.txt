@@ -1,0 +1,16 @@
+Project Name: My Project 
+Project State: initialization 
+Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
+Update Date: Sun, May 27, 2018  9:15:17 PM 
+Branch Name: myp_2018_05_0005 
+Branch UID: 0005 
+ 
+Last Time I Worked On This Project : 
+I got the chain of commits to work
+ 
+This Time I : 
+am hoping I can get the commit messages moved to the log file 
+ 
+Next Time I Will : 
+track commit logs
+ 

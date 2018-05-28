@@ -1,16 +1,19 @@
 Project Name: My Project 
 Project State: initialization 
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Update Date: Sun, May 27, 2018  9:15:17 PM 
-Branch Name: myp_2018_05_0005 
-Branch UID: 0005 
+Update Date: Sun, May 27, 2018  9:19:12 PM 
+Branch Name: myp_2018_05_0006 
+Branch UID: 0006 
  
 Last Time I Worked On This Project : 
-I got the chain of commits to work
+reminder-no punctuations that could be escape terms 
  
 This Time I : 
-am hoping I can get the commit messages moved to the log file 
+reminder-no punctuations that could be escape terms 
  
 Next Time I Will : 
-track commit logs
+reminder-no punctuations that could be escape terms 
  
+ 
+ 
+Time of Commit: Sun, May 27, 2018  9:22:50 PM

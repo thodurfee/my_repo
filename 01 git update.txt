@@ -94,6 +94,12 @@ sed -i "s/$lastbranchheader , $lastbranch/$lastbranchheader , $thisbranch/g" $me
 #
 #
 #
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' "Time of Commit: $(date)" >> "$outputfile"
+#
+#
+#
 cd ../
 project_directory=$(pwd)
 #
@@ -114,7 +120,7 @@ mv "./03 commit message.txt" "./00 commit logs/$thisbranch commit.txt"
 printf '%s\n' "Project Name: $project_name " > "$outputfile"
 printf '%s\n' "Project State: $project_state " >> "$outputfile"
 printf '%s\n' "Project Directory: $project_directory " >> "$outputfile"
-printf '%s\n' "Update Date: $(date) " >> "$outputfile"
+printf '%s\n' "Last Update: $(date) " >> "$outputfile"
 printf '%s\n' "Branch Name: $newbranch " >> "$outputfile"
 printf '%s\n' "Branch UID: $inccount " >> "$outputfile"
 printf '%s\n' " " >> "$outputfile"

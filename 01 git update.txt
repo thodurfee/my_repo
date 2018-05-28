@@ -107,7 +107,7 @@ git push origin $newbranch
 #
 #
 cd "./D Settings"
-rm "./03 commit message.txt"
+mv "./03 commit message.txt" "./00 commit logs/$thisbranch commit.txt"
 #
 #
 #

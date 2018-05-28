@@ -98,7 +98,7 @@ startyear=$( awk -F "," "/Project Initialization Year/"  "$metafile"  |  cut  -d
 echo "Start Year:$startyear"
 #
 #
-startmonth=$( awk -F "," "/Project Initialization Month/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
+startmonth=$( printf "%02g" $(awk -F "," "/Project Initialization Month/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1') )
 echo "Start Month:$startmonth"
 #
 #

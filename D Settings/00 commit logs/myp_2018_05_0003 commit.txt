@@ -1,9 +1,9 @@
 Project Name: My Project 
 Project State: initialization 
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Last Update: Sun, May 27, 2018  9:52:31 PM 
-Branch Name: myp_2018_5_0009 
-Branch UID: 0009 
+Last Update: Sun, May 27, 2018  9:51:25 PM 
+Branch Name: myp_2018_05_0003 
+Branch UID: 0003 
  
 Last Time I Worked On This Project : 
 reminder-no punctuations that could be escape terms 
@@ -16,4 +16,4 @@ reminder-no punctuations that could be escape terms
  
  
  
-Time of Commit: Sun, May 27, 2018 10:03:31 PM
+Time of Commit: Sun, May 27, 2018  9:52:27 PM

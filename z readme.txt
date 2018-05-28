@@ -24,20 +24,24 @@ Rules:		1) When I come up with a name for the project, I cannot use "\n"
 			you will break the Unix shell editor later
 
 
-Instructions:	1) Fill in project details in "~/I Initialization"
+Instructions:	1) Fill in project details in "~/E Setup and Support Code
 			a) "./01 input project details.csv"
 			b) "./02 input project description.txt"
 			c) "./03 input git settings <insert git name>.csv"
 				git name will change if you are using the
 				umn or the personal git account
 
-		2) Run "./99 initialization wrapper.txt" from inside "./I"
+		2) Run "./99 initialization wrapper.txt" from inside "./E"
+			Do not run from the head directory
 
 
 		3) Fill in project details in "~/D Settings"
 			a) "./01 git ignore files.txt" for files not to be
 				in the repository (e.g. big files)
 			b) "./03 committ message.txt" for my committs
+
+		4) When you want to commit, run the "01 git update.txt"
+			frile from within the head directory
 				
 
 
@@ -48,14 +52,6 @@ Instructions:	1) Fill in project details in "~/I Initialization"
 ifpossible, I should see if I can make a unix log file for this set up code.
 
 
-
-1.. am I making the 02 git committ template twice
-
-2.. who do I spell committcomit
-
-3.. make the incrementor for the working branch, acctually, pull from the meta file,
-dont just do it in the shell
-
 4. review unrelated histories so I dont get confused,
 
 then think about how I can merge branches from thee bottom up
@@ -64,31 +60,6 @@ maybe have a list of branches that this project has previously taken then write 
 look for help online if there are examples of this somewhere else
 
 
-
-
-
-for some reason, in 01 git update.txt , when I type the sed command on line 22 into the terminal, I get the activity I want, the replacement of the run count from the meta.csv file
-
-but when I try to run the same code in a script with globals for values instead of hard coded numbers, it fails.
-
-
-Go back to the labor project and seee what I did to increment
-	also, see if my awk / grep / sed commands from the labor project apply here, they should
-
-
-
-after I update that, consider merging folders I and E
-
-for the commit history, remember to track the run count,
-either try and change the format into 0001   0002   style
-or
-see if commits and branch names canhave a . in them and just use 0.0001 0.0002 as substitutes
-
-
-also, start going through each file and add the comments for the file
-
-
-start referring ot the comments in this read me file
 
 start giving this read me structure
 

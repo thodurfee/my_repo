@@ -5,7 +5,6 @@
 git status
 git add .
 cd "./D Settings"
-"./01 git ignore files.txt"
 #
 git status
 #
@@ -89,7 +88,8 @@ sed -i "s/$lastbranchheader , $lastbranch/$lastbranchheader , $thisbranch/g" $me
 cd ../
 #
 git add .
-#git checkout -b origin newbranch
+"./D Settings/01 git ignore files.txt"
+git checkout -b $newbranch
 git commit -F "./D Settings/03 commit message.txt"
 git status
-#git push origin newbranch
+git push origin $newbranch

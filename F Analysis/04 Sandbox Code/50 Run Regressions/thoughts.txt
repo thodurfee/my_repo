@@ -1,0 +1,19 @@
+Things to get
+
+Average Traeatment effect
+
+Average Treatment effect on the trated
+
+average treatment effect on the not treated
+
+
+intent to treat
+
+naive estimators
+
+local average treatment effeect
+
+marginal average treatment effect
+
+
+define cells for external validity, as a part of descriptives?

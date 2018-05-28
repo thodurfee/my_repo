@@ -1,7 +1,0 @@
-#!/bin/bash -l
-#PBS -l nodes=2:ppn=32,mem=998gb,walltime=02:59:00
-#PBS -m abe
-#PBS -N "B_LAB_MATCHING"
-#PBS -M durfe019@umn.edu
-#PBS -o pbs_log_stata_job_match.log
-#PBS -e pbs_error_log_match.log

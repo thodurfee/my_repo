@@ -95,6 +95,7 @@ sed -i "s/$lastbranchheader , $lastbranch/$lastbranchheader , $thisbranch/g" $me
 #
 #
 cd ../
+project_directory=$(pwd)
 #
 git add .
 "./D Settings/01 git ignore files.txt"
@@ -107,7 +108,6 @@ git push origin $newbranch
 #
 cd "./D Settings"
 rm "./03 commit message.txt"
-project_directory=$(pwd)
 #
 #
 #

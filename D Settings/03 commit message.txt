@@ -1,17 +1,16 @@
 Project Name: My Project 
-Project State: git setup 
-Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Update Date: Sun, May 27, 2018  6:39:23 PM 
-Branch Name: placeholder 
-Branch UID: 0002 
+Project State: initialization 
+Project Directory: /c/Users/DurfTop/Desktop/workspace 4/D Settings 
+Update Date: Sun, May 27, 2018  9:14:17 PM 
+Branch Name: myp_2018_05_0004 
+Branch UID: 0004 
  
 Last Time I Worked On This Project : 
-this morning
+reminder-no punctuations that could be escape terms 
  
 This Time I : 
-I think I have a stable chain now
-this is a test of the linking system
+reminder-no punctuations that could be escape terms 
  
 Next Time I Will : 
-try to make a log file that has the history of all commit messages
+reminder-no punctuations that could be escape terms 
  

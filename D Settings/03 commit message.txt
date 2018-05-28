@@ -3,14 +3,15 @@ Project State: git setup
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
 Update Date: Sun, May 27, 2018  6:39:23 PM 
 Branch Name: placeholder 
-Branch UID: 0 
+Branch UID: 0002 
  
 Last Time I Worked On This Project : 
-reminder-no punctuations that could be escape terms 
+this morning
  
 This Time I : 
-reminder-no punctuations that could be escape terms 
+I think I have a stable chain now
+this is a test of the linking system
  
 Next Time I Will : 
-reminder-no punctuations that could be escape terms 
+try to make a log file that has the history of all commit messages
  

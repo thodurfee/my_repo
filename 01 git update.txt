@@ -76,9 +76,9 @@ echo $newbranch
 echo $thisbranch
 echo $lastbranch
 #
-sed 'i/$getcountheader , $getcount/$getcountheader , $inccount/g' "$metafile"
-sed 'i/$thisbranchheader , $thisbranch/$thisbranchheader , $newbranch/g' "$metafile"
-sed 'i/$lastbranchheader , $lastbranch/$lastbranchheader ,  $thisbranch/g' "$metafile"
+sed 'c/$getcountheader , $getcount/$getcountheader , $inccount/g' "$metafile"
+sed 'c/$thisbranchheader , $thisbranch/$thisbranchheader , $newbranch/g' "$metafile"
+sed 'c/$lastbranchheader , $lastbranch/$lastbranchheader ,  $thisbranch/g' "$metafile"
 #
 #
 #

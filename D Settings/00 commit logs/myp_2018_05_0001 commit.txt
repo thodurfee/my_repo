@@ -1,0 +1,19 @@
+Project Name: My Project 
+Project State: initialization 
+Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
+Last Update: Sun, May 27, 2018  9:47:44 PM 
+Branch Name: myp_2018_05_0001 
+Branch UID: 0001 
+ 
+Last Time I Worked On This Project : 
+I think I have a stable version with the basics 
+ 
+This Time I : 
+am going to check what the commit log is going to look like 
+ 
+Next Time I Will : 
+integrate state and r 
+ 
+ 
+ 
+Time of Commit: Sun, May 27, 2018  9:50:21 PM

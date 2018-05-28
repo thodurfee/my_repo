@@ -1,7 +1,7 @@
 Project Name: My Project 
 Project State: initialization 
 Project Directory: /c/Users/DurfTop/Desktop/workspace 4 
-Last Update: Sun, May 27, 2018  9:50:23 PM 
+Last Update: Sun, May 27, 2018 10:10:51 PM 
 Branch Name: myp_2018_05_0002 
 Branch UID: 0002 
  
@@ -12,8 +12,8 @@ This Time I :
 reminder-no punctuations that could be escape terms 
  
 Next Time I Will : 
-this is a coy of the last commit I am checking the counter 
+reminder-no punctuations that could be escape terms 
  
  
  
-Time of Commit: Sun, May 27, 2018  9:51:23 PM
+Time of Commit: Sun, May 27, 2018 10:10:54 PM

@@ -11,11 +11,20 @@ git status
 #
 #
 metafile="meta.csv"
+outputfile="03 commit message.txt"
 #
 #
 #
 #
 # the awk $1=$1 piece is to remove spaces between the pieces of the paste
+project_name=$( awk -F "," "/Project Name/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
+echo "Project Name:$project_name"
+#
+#
+project_state=$( awk -F "," "/Project State/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
+echo "Project State:$project_state"
+#
+#
 getcount=$( awk -F "," "/Project Run Count/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
 echo "Get Count:$getcount"
 #
@@ -93,3 +102,28 @@ git checkout -b $newbranch
 git commit -F "./D Settings/03 commit message.txt"
 git status
 git push origin $newbranch
+#
+#
+#
+cd "./D Settings"
+rm "./03 commit message.txt"
+project_directory=$(pwd)
+#
+#
+#
+printf '%s\n' "Project Name: $project_name " > "$outputfile"
+printf '%s\n' "Project State: $project_state " >> "$outputfile"
+printf '%s\n' "Project Directory: $project_directory " >> "$outputfile"
+printf '%s\n' "Update Date: $(date) " >> "$outputfile"
+printf '%s\n' "Branch Name: $newbranch " >> "$outputfile"
+printf '%s\n' "Branch UID: $inccount " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' "Last Time I Worked On This Project : " >> "$outputfile"
+printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' "This Time I : " >> "$outputfile"
+printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"
+printf '%s\n' "Next Time I Will : " >> "$outputfile"
+printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
+printf '%s\n' " " >> "$outputfile"

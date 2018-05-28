@@ -80,9 +80,9 @@ echo $lastbranch
 pwd
 echo "Meta Settings File:$metafile"
 #
-sed -F 's/$getcountheader , $getcount/$getcountheader , $inccount/g' "$metafile"
-sed -F 's/$thisbranchheader , $thisbranch/$thisbranchheader , $newbranch/g' "$metafile"
-sed -F 's/$lastbranchheader , $lastbranch/$lastbranchheader , $thisbranch/g' "$metafile"
+sed -i 's/$getcountheader , $getcount/$getcountheader , $inccount/g' "$metafile"
+sed -i 's/$thisbranchheader , $thisbranch/$thisbranchheader , $newbranch/g' "$metafile"
+sed -i 's/$lastbranchheader , $lastbranch/$lastbranchheader , $thisbranch/g' "$metafile"
 #
 #
 #

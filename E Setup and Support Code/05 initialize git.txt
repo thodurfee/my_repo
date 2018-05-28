@@ -32,6 +32,26 @@ outputfile="02 commit message template.txt"
 outputfile2="03 commit message.txt"
 settingsfile="03 input git settings thodurfee.csv"
 #
+#
+#
+# awk is to search the document to find the line with the given search term
+#
+# -F is to clarify that this search will take place for a file, not a string
+#
+# "," is to clarify that this is going to search in a csv
+#
+# "/insert text/" is the serch term for awk
+#
+# |  is a piping to link two commands together
+#
+#  cut is to trim the awk output from the whole line with the search term to the
+#		second piece of the line
+#
+#	-d , is <i think> to clarify that there is a comma delimiter
+#
+# -f2 is to clarify that you want the second cell of the line
+#
+#
 project_name=$( awk -F ","  "/Project Name/"   "$metafile"  |  cut  -d ,  -f2 )
 gituser=$( awk -F ","  "/git user/"   "$settingsfile"  |  cut  -d ,  -f2 )
 gitrepo=$( awk -F ","  "/git repo/"   "$settingsfile"  |  cut  -d ,  -f2 )
@@ -101,12 +121,6 @@ cd ../
 #
 #
 cd "./00 commit logs"
-# order of terms
-# projectname
-# project abreviation
-# project start date
-# update date
-# branch name
 #
 #
 #

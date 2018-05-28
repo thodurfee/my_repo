@@ -2,6 +2,11 @@
 #
 #
 #
+#######################
+# 01: Setup and Check #
+###################################################################
+# start with a basic check to just see that I can update accordingly
+#
 git status
 git add .
 cd "./D Settings"
@@ -16,7 +21,35 @@ outputfile="03 commit message.txt"
 #
 #
 #
-# the awk $1=$1 piece is to remove spaces between the pieces of the paste
+###################################
+# 02: Define Meta Program Details #
+###################################################################
+# Purpose: Define each of the project meta data pieces so I can
+#			 add them to the update log
+#
+# Explaination: the $() over everything is to allow for the global
+#		 			to be defined as the output of the script line
+#
+# 				-F is to clarify that this is going to look at a
+#					 file
+#
+# 				"," is a seperator of a csv file
+#
+# 				"/insert text/" is the search term for awk to 
+#					find in the meta file
+#
+# 				cut -d , -f2  is to only print the second cell
+#					 of this line
+#
+#				the awk part will find the line that the search
+#					 term exists on
+#
+#				the cut will limitthe printed output from the 
+#					whole line, to the second cell
+#
+# 				the awk $1=$1 piece is to remove spaces between
+#					 the pieces of the paste
+#
 project_name=$( awk -F "," "/Project Name/"  "$metafile"  |  cut  -d , -f2 | awk '{$1=$1};1')
 echo "Project Name:$project_name"
 #
@@ -78,12 +111,9 @@ echo "New Branch Name:$newbranch"
 #
 #
 #
-echo $getcount
-echo $inccount
-echo $newbranch
-echo $thisbranch
-echo $lastbranch
-#
+############################
+# 03: Update the meta file #
+###################################################################
 #
 pwd
 echo "Meta Settings File:$metafile"
@@ -94,6 +124,10 @@ sed -i "s/$lastbranchheader , $lastbranch/$lastbranchheader , $thisbranch/g" $me
 #
 #
 #
+##############################
+# 04: Update the commit file #
+###################################################################
+#
 printf '%s\n' " " >> "$outputfile"
 printf '%s\n' " " >> "$outputfile"
 printf '%s\n' "Time of Commit: $(date)" >> "$outputfile"
@@ -102,6 +136,13 @@ printf '%s\n' "Time of Commit: $(date)" >> "$outputfile"
 #
 cd ../
 project_directory=$(pwd)
+#
+#
+#
+#
+######################
+# 05: Run the commit #
+###################################################################
 #
 git add .
 "./D Settings/01 git ignore files.txt"
@@ -112,10 +153,16 @@ git push origin $newbranch
 #
 #
 #
+##################################
+# 06: Setup the next commit file #
+###################################################################
+#
 cd "./D Settings"
 mv "./03 commit message.txt" "./00 commit logs/$thisbranch commit.txt"
 #
 #
+# %s signifies it is a string
+# \n is to signify you want the next piece to start a new line
 #
 printf '%s\n' "Project Name: $project_name " > "$outputfile"
 printf '%s\n' "Project State: $project_state " >> "$outputfile"
@@ -133,3 +180,10 @@ printf '%s\n' " " >> "$outputfile"
 printf '%s\n' "Next Time I Will : " >> "$outputfile"
 printf '%s\n' "reminder-no punctuations that could be escape terms " >> "$outputfile"
 printf '%s\n' " " >> "$outputfile"
+#
+#
+#
+############
+# 07 : End #
+###################################################################
+#
